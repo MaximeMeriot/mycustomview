@@ -38,6 +38,7 @@ include_once(GLPI_ROOT . "/plugins/mycustomview/inc/profilerights.class.php");
 function plugin_init_mycustomview()
 {
    global $PLUGIN_HOOKS;
+   $test = 10;
 
    Plugin::registerClass('PluginMycustomviewProfile', ['addtabon' => 'Profile']);
    Plugin::registerClass('PluginMycustomviewMyview', ['addtabon' => 'Central']);
