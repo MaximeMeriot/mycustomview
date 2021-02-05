@@ -159,6 +159,7 @@ class PluginMycustomviewSavedSearch extends SavedSearch
          var data = [];
          deleteTab = [];
          screenmodeTab = [];
+         heightTab = [];
          var number;
          var id;
          var dif = false;
@@ -167,6 +168,10 @@ class PluginMycustomviewSavedSearch extends SavedSearch
             if ($(this).hasData('screenmode')) {
                 screenmode = $(this).data('screenmode');
                 screenmodeTab.push({id :id, screenmode :screenmode});
+            }
+            if ($(this).hasData('height')) {
+               height = $(this).data('height');
+               heightTab.push({id: id, height :height});
             }
             number = $(this).data('number');
            
@@ -192,7 +197,7 @@ class PluginMycustomviewSavedSearch extends SavedSearch
          $.ajax({
             url: '" . $CFG_GLPI['root_doc'] . "/plugins/mycustomview/ajax/deleteAndMoveSearch.php',
             type: 'POST',
-            data: {data:data, deleteTab:deleteTab, screenmodeTab:screenmodeTab},
+            data: {data:data, deleteTab:deleteTab, screenmodeTab:screenmodeTab, heightTab:heightTab},
             success:function(data) {
                 window.location.reload();
             }
@@ -546,6 +551,21 @@ class PluginMycustomviewSavedSearch extends SavedSearch
          'glpi_plugin_mycustomview_savedsearch_list',
          [
             'screen_mode'      => $screenmode,
+         ],
+         [
+            'id' => $id
+         ]
+      );
+   }
+
+   public static function changeHeight($id, $height)
+   {
+      global $DB;
+
+      $DB->update(
+         'glpi_plugin_mycustomview_savedsearch_list',
+         [
+            'height'      => $height,
          ],
          [
             'id' => $id

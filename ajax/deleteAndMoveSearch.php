@@ -17,9 +17,6 @@ if (!(PluginMycustomviewProfileRights::canUpdate())) {
     return false;
 }
 
-
-
-
 if (isset($_POST)) {
     if (isset($_POST['deleteTab'])) {
         foreach ($_POST['deleteTab'] as $id) {
@@ -34,6 +31,12 @@ if (isset($_POST)) {
     if (isset($_POST['screenmodeTab'])) {
         foreach ($_POST['screenmodeTab'] as $data) {
             PluginMycustomviewSavedSearch::changeScreenMode($data['id'], $data['screenmode']);
+        }
+    }
+
+    if (isset($_POST['heightTab'])) {
+        foreach ($_POST['heightTab'] as $data) {
+            PluginMycustomviewSavedSearch::changeHeight($data['id'], $data['height']);
         }
     }
 

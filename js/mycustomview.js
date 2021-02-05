@@ -61,6 +61,8 @@ $(document).ready(function () {
     $(".fa-wrench").addClass("mcv_display_none");
     $(".mcv_title_savedsearch").addClass("absolute_edit_title");
     $(".mcv_content_savedsearch").addClass("absolute_edit_content");
+    $(".mcv_tab").addClass("resizable");
+
   });
 
   function actionOnCancel() {
@@ -80,6 +82,7 @@ $(document).ready(function () {
     $(".fa-wrench").removeClass("mcv_display_none");
     $(".mcv_title_savedsearch").removeClass("absolute_edit_title");
     $(".mcv_content_savedsearch").removeClass("absolute_edit_content");
+    $(".mcv_tab").removeClass("resizable");
   }
 
   $("#mcv_cancel").on("click", function () {
@@ -88,6 +91,16 @@ $(document).ready(function () {
       $(".fullscreen-dark-container").removeClass("mcv_display_none");
     } else {
       actionOnCancel();
+    }
+  });
+
+  // On vient créer un data-height si 
+  $(".mcv_tab").on("click", function () {
+    var height = $(this).height();
+    var styleHeight = $(this).css("height");
+    if (height !== 500 && styleHeight !== height) {
+      $(this).attr('data-height', height);
+      buttonCancel.attr("data-message", 1);
     }
   });
 

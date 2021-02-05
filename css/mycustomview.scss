@@ -53,6 +53,9 @@ $white: 255, 255, 255;
 .fixed {
   position: fixed;
 }
+.resizable {
+  resize: vertical;
+}
 .font-bigger {
   font-size: 1.1em !important;
 }

@@ -505,7 +505,7 @@ class PluginMycustomviewSearch extends Search
          $p['target']       = Toolbox::getItemTypeSearchURL($itemtype);
       }
       $p['display_type']        = self::HTML_OUTPUT;
-      $p['list_limit']          = $_SESSION['glpilist_limit'];
+      $p['list_limit']          = 5;
       $p['massiveactionparams'] = [];
 
       foreach ($params as $key => $val) {

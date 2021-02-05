@@ -64,6 +64,7 @@ function plugin_mycustomview_install()
          `savedsearch_id` INT(11) NOT NULL,
          `order` TINYINT,
          `screen_mode` TINYINT,
+         `height` INT(11),
           PRIMARY KEY  (`id`)
        ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci";
 
