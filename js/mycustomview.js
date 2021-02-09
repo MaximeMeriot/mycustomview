@@ -104,7 +104,7 @@ $(document).ready(function () {
     }
   });
 
-  $(".mcv_modal_close").on("click", function () {
+  $(".mcv_modal_close").on("mouseup", function () {
     $(this).closest(".mcv_modal").addClass("mcv_display_none");
     var type = $(this).data("modaltype");
     if ((type = "message")) {
@@ -207,4 +207,11 @@ $(document).ready(function () {
   });
 
   $(".order_DESC::before").addClass("mcv_display_none");
+
+  $(".mcv_nb_items option").each(function () {
+    var sessionNumberItems = $(".mcv_nb_items").data('session-items-number');
+    if ($(this).val() == sessionNumberItems) {
+      $(this).attr('selected', true);
+    }
+  });
 });

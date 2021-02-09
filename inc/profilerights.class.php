@@ -179,4 +179,31 @@ class PluginMycustomviewProfileRights extends CommonDBTM
          return true;
       }
    }
+
+   static function isAskerIdIdentic($id){
+      if($_SESSION['glpiID'] == $id) {
+         return true;
+      }
+      return false;
+   }
+
+   static function addErrorMessage($message) {
+      Session::addMessageAfterRedirect(
+         $message,
+         false,
+         ERROR
+     );
+     echo json_encode(['success' => false]);
+     Html::displayAjaxMessageAfterRedirect();
+   }
+
+   static function addSuccessMessage($message) {
+      Session::addMessageAfterRedirect(
+         $message,
+         false,
+         INFO
+     );
+     echo json_encode(['success' => true]);
+     Html::displayAjaxMessageAfterRedirect();
+   }
 }

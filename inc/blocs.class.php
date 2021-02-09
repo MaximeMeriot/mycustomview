@@ -161,7 +161,20 @@ class PluginMycustomviewBlocs extends PluginMycustomviewSearch
 
         // Barre de button modifier / annuler / enregistrer / defaut
         echo "<div class='mcv_manage_tab'>";
-
+        echo "<input type='hidden' id='user-id' value='".$_SESSION['glpiID']."'>";
+        echo "<div class='d-flex flex-column flex-start'>";
+        echo "<div class='d-flex self-flex-start m-r-auto align-start m-b-5'>";
+        $sessionItemsNumber = isset($_SESSION['glpilist_limit_mcv']) ? $_SESSION['glpilist_limit_mcv'] : 20;
+        echo "<label for='mcv_nb_items'>Nombre d'élément par recherche : </label>";
+        echo "<select class='mcv_nb_items' name='mcv_nb_items' data-session-items-number='".$sessionItemsNumber ."'>";
+        echo "<option value='5'>5</option>";
+        echo "<option value='10'>10</option>";
+        echo "<option value='15'>15</option>";
+        echo "<option value='20'>20</option>";
+        echo "<option value='25'>25</option>";
+        echo "<option value='30'>30</option>";
+        echo "</select>";
+        echo "</div>";
         echo "<div class='d-flex self-flex-start m-r-auto align-end'>";
         if (PluginMycustomviewSavedSearch::isDefaultPageOfUser()) {
             echo "<input name='isMcvDefault' type='checkbox' checked class='mcv_delete_default'>";
@@ -169,6 +182,7 @@ class PluginMycustomviewBlocs extends PluginMycustomviewSearch
             echo "<input name='isMcvDefault' type='checkbox' class='mcv_add_default'>";
         }
         echo "<b><label for='isMcvDefault' class='m-l-5'>Page par défaut</label></b>";
+        echo "</div>";
         echo "</div>";
         echo "<button id='mcv_cancel' class='mcv_button mcv_text_light mcv_button_warning mcv_cancel mcv_display_none' ><i class='fas fa-2x fa-times'></i>Annuler</button>";
         echo "<button id ='mcv_edit' class='mcv_edit mcv_button mcv_text_light mcv_button_basic'><i class='fas fa-2x fa-edit'></i>Modifier</button>";

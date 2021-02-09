@@ -194,6 +194,17 @@ $white: 255, 255, 255;
 .align-end {
   align-self: flex-end;
 }
+.align-start {
+  align-self: flex-start;
+}
+
+.flex-column {
+  flex-direction: column;
+}
+
+.m-b-5 {
+  margin-bottom: 5px;
+}
 
 .self-flex-start {
   justify-self: flex-start !important;

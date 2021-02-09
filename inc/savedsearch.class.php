@@ -199,7 +199,7 @@ class PluginMycustomviewSavedSearch extends SavedSearch
             type: 'POST',
             data: {data:data, deleteTab:deleteTab, screenmodeTab:screenmodeTab, heightTab:heightTab},
             success:function(data) {
-                window.location.reload();
+              window.location.reload();
             }
          });
       });
@@ -271,6 +271,26 @@ class PluginMycustomviewSavedSearch extends SavedSearch
                 window.location.reload();
             }
          });
+      });
+
+      // --------------
+      // CHANGEMENT DU NOMBRE D'ELEMENT MAXIMUM PAR VUE
+      // --------------
+
+      $('.mcv_nb_items').on('change', function() {
+         var actualNumber = $('.mcv_nb_items').data('session-items-number');
+         var number = $(this).val();
+         var id = $('#user-id').val();
+         if (number !== actualNumber) {
+            $.ajax({
+               url: '" . $CFG_GLPI['root_doc'] . "/plugins/mycustomview/ajax/changeItemsNumberPerView.php',
+               type: 'GET',
+               data: 'id=' + id + '&number=' + number,
+               success:function(data) {
+                  window.location.reload();
+               }
+            });
+         }
       });
       ";
 
@@ -586,5 +606,48 @@ class PluginMycustomviewSavedSearch extends SavedSearch
             'id' => $id
          ]
       );
+   }
+
+   public static function getListLimitForUser($id)
+   {
+      global $DB;
+      $table = 'glpi_plugin_mycustomview_user_settings';
+
+      $result = $DB->request([
+         'SELECT' =>
+         "$table.list_limit",
+         'FROM' => $table,
+
+         'WHERE' => [
+            "$table.user_id"    => $id
+         ],
+      ]);
+
+      echo $id;
+      foreach ($result as $liste) {
+         if ($liste['list_limit'] == NULL) {
+            $_SESSION['glpilist_limit_mcv'] = 20;
+         } else {
+            $_SESSION['glpilist_limit_mcv'] = $liste['list_limit'];
+         }
+      }
+   }
+
+   public static function changeItemsNumber($id, $number)
+   {
+      global $DB;
+      $table = 'glpi_plugin_mycustomview_user_settings';
+
+      $DB->update(
+         $table,
+         [
+            'list_limit'      => $number,
+         ],
+         [
+            'user_id' => $id
+         ]
+      );
+
+      $_SESSION['glpilist_limit_mcv'] = $number;
    }
 }

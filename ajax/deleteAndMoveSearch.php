@@ -7,13 +7,7 @@ Html::header_nocache();
 Session::checkLoginUser();
 
 if (!(PluginMycustomviewProfileRights::canUpdate())) {
-    Session::addMessageAfterRedirect(
-        'Vous n\'avez pas les droits pour effectuer cette action',
-        false,
-        ERROR
-    );
-    echo json_encode(['success' => false]);
-    Html::displayAjaxMessageAfterRedirect();
+    PluginMycustomviewProfileRights::addErrorMessage('Vous n\'avez pas les droits pour effectuer cette action');
     return false;
 }
 
@@ -36,17 +30,9 @@ if (isset($_POST)) {
 
     if (isset($_POST['heightTab'])) {
         foreach ($_POST['heightTab'] as $data) {
+            print_r($_POST['heightTab']);
             PluginMycustomviewSavedSearch::changeHeight($data['id'], $data['height']);
         }
     }
-
-
-    Session::addMessageAfterRedirect(
-        'L&apos;affichage de vos fenêtres a bien été enregistré.',
-        false,
-        INFO
-    );
-    echo json_encode(['success' => true]);
-
-    Html::displayAjaxMessageAfterRedirect();
+    PluginMycustomviewProfileRights::addSuccessMessage('L&apos;affichage de vos fenêtres a bien été enregistré.');
 }

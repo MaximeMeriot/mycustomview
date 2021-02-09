@@ -491,6 +491,10 @@ class PluginMycustomviewSearch extends Search
    {
       global $CFG_GLPI;
 
+      if(!isset($_SESSION['glpilist_limit_mcv'])) {
+        PluginMycustomviewSavedSearch::getListLimitForUser(Session::getLoginUserID());
+      }
+
       // Default values of parameters
       $p['criteria']            = [];
       $p['metacriteria']        = [];
@@ -505,7 +509,7 @@ class PluginMycustomviewSearch extends Search
          $p['target']       = Toolbox::getItemTypeSearchURL($itemtype);
       }
       $p['display_type']        = self::HTML_OUTPUT;
-      $p['list_limit']          = 5;
+      $p['list_limit']          = $_SESSION['glpilist_limit_mcv'];
       $p['massiveactionparams'] = [];
 
       foreach ($params as $key => $val) {
@@ -789,6 +793,10 @@ class PluginMycustomviewSearch extends Search
       }
 
       echo "<td width='20%' class='tab_bg_2 b' style='text-align:left'>";
+      // correction du nombre d'éléments
+      if($_SESSION['glpilist_limit_mcv'] < $current_end) {
+         $current_end = $_SESSION['glpilist_limit_mcv'];
+      }
       //TRANS: %1$d, %2$d, %3$d are page numbers
       printf(__('From %1$d to %2$d of %3$d'), $current_start, $current_end, $numrows);
       echo "</td>\n";
