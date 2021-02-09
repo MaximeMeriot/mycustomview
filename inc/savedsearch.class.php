@@ -169,8 +169,9 @@ class PluginMycustomviewSavedSearch extends SavedSearch
                 screenmode = $(this).data('screenmode');
                 screenmodeTab.push({id :id, screenmode :screenmode});
             }
-            if ($(this).hasData('height')) {
-               height = $(this).data('height');
+            var height = $(this).height();
+            var dataHeight = $(this).data('height');
+            if (height != dataHeight) {
                heightTab.push({id: id, height :height});
             }
             number = $(this).data('number');

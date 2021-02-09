@@ -203,6 +203,7 @@ class PluginMycustomviewBlocs extends PluginMycustomviewSearch
                 if ($liste = $savedsearch->getUserSavedSearchMcv($max_filters)) {
                     $screen_mode = isset($liste[$i - 1]['screen_mode']) ? $liste[$i - 1]['screen_mode'] : null;
                     $height = isset($liste[$i - 1]['height']) ? $liste[$i - 1]['height'] : null;
+                    $dataHeight = isset($liste[$i - 1]['height']) ? $liste[$i - 1]['height'] : 500;
                     if (isset($screen_mode)) {
                         if ($screen_mode == 0) {
                             $screen_mode_class = 'w-49';
@@ -214,7 +215,7 @@ class PluginMycustomviewBlocs extends PluginMycustomviewSearch
                         $screen_mode_class = 'w-49';
                     }
                     if($height !== null) {
-                          echo " <div class='mcv_tab mcv_movable_items " . $screen_mode_class . "' data-number=" . $i . " style ='height:". $height."px'>";
+                          echo " <div class='mcv_tab mcv_movable_items " . $screen_mode_class . "' data-number=" . $i . " style ='height:". $height."px' data-height='".$dataHeight."'>";
                     }
                     else {
                         echo " <div class='mcv_tab mcv_movable_items " . $screen_mode_class . "' data-number=" . $i . ">";

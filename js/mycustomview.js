@@ -94,17 +94,7 @@ $(document).ready(function () {
     }
   });
 
-  // On vient créer un data-height si 
-  $(".mcv_tab").on("click", function () {
-    var height = $(this).height();
-    var styleHeight = $(this).css("height");
-    if (height !== 500 && styleHeight !== height) {
-      $(this).attr('data-height', height);
-      buttonCancel.attr("data-message", 1);
-    }
-  });
-
-  $(".mcv_modal_close").on("mouseup", function () {
+  $(".mcv_modal_close").on("click", function () {
     $(this).closest(".mcv_modal").addClass("mcv_display_none");
     var type = $(this).data("modaltype");
     if ((type = "message")) {
