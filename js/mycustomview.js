@@ -192,7 +192,7 @@ $(document).ready(function () {
 
   // Clic sur le redimensionnement d'une fenêtre
   $(".mcv_screenmode").on("click", function () {
-    var parentDiv = $(this).parents(mcvTab);
+    var parentDiv = $(this).parents(".mcv_tab");
     buttonCancel.attr("data-message", 1);
 
     if (parentDiv.hasClass("w-49")) {

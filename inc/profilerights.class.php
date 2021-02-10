@@ -161,9 +161,6 @@ class PluginMycustomviewProfileRights extends CommonDBTM
          if ($id == 4) {
             return false;
          }
-         var_dump('Read : ' . $read);
-         var_dump('update : ' . $update);
-         var_dump('right : ' . $right);
 
          $DB->updateOrInsert(
             'glpi_plugin_mycustomview_profile_rights',

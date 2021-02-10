@@ -255,7 +255,6 @@ class PluginMycustomviewSearch extends Search
                }
 
                $name = $val["name"];
-               // var_dump($name);
 
                // prefix by group name (corresponding to optgroup in dropdown) if exists
                if (isset($val['groupname'])) {
