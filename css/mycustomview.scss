@@ -285,20 +285,6 @@ $white: 255, 255, 255;
   display: flex;
   flex-direction: column;
 }
-.mcv_tab {
-  scrollbar-color: $default-color #eee;
-  // scrollbar-width: thin;
-}
-.mcv_tab::-webkit-scrollbar {
-  width: 1em;
-} 
-.mcv_tab::-webkit-scrollbar-track {
--webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
-}
-.mcv_tab::-webkit-scrollbar-thumb {
-  background-color: $default-color;
-  outline: 1px solid #eee;
-}
 
 .mcv_tab_limit {
   max-height: 100%;
@@ -320,7 +306,8 @@ $white: 255, 255, 255;
   cursor: -webkit-grab;
   cursor: grab;
   display: flex;
-  align-items: center;
+  flex-direction: column;
+  align-items: space-between;
   justify-content: center;
   color: white;
   z-index: 10;

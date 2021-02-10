@@ -34,108 +34,7 @@ class PluginMycustomviewBlocs extends PluginMycustomviewSearch
 
         // ------- MODAL HELP  ----------- //
 
-        echo "<div class='mcv_modal mcv_modal_bg_light mcv_modal_large mcv_modal_help mcv_display_none'>";
-        echo "<button title='Fermer' class='mcv_modal_close p-none mcv_button_basic'><i class='fas fa-3x fa-window-close' data-modaltype='help' aria-hidden='true'></i></button>";
-        echo "<div class='mcv_modal_bg_basic mcv_text_light mcv_modal_header'>";
-        echo "<h2 class='text-center m-auto mcv_modal_header_text'>Comment ça marche ?</h2>";
-        echo "</div>";
-
-        // ---------- SLIDER ---------- //
-        echo " <div class='flexslider'>";
-        echo " <ul class='slides'>";
-        echo "<li>";
-
-        echo "<div class='p-5'>";
-        echo "<p class='subtitle_modal m-5'>Etape 1 (Prérequis) : Création d'une ou plusieurs Recherche(s) sauvegardée(s)</p><br>";
-        echo "<p><span class='font-bigger'>Votre onglet <b>« Ma vue personnalisée »</b> fait appel à la fonctionnalité de <b>« Recherches sauvegardées »</b> (équivalent à se créer des filtres personnalisés).</span><br><br>";
-        echo "<u>Suivre la procédure ci-dessous pour créer une (ou plusieurs) recherches :<br><br></u>";
-        echo "•	Dans le menu <b>Assistance / Tickets</b>, effectuez une nouvelle recherche en positionnant les filtres souhaités puis cliquez sur <b>« Rechercher »</b>. Il vous reste à sauvegarder votre recherche en cliquant sur le symbole en étoile :";
-        echo "</p></div>";
-        echo "  <img src='../plugins/mycustomview/images/img1.png' class='w-auto m-auto p-3 flexImages'/>";
-        echo "</li>";
-
-        echo "<li>";
-        echo "<div class='p-5'><p>";
-        echo "•	Nommez votre recherche et cliquez sur <b>Ajouter</b> :";
-        echo "</p></div>";
-        echo "  <img src='../plugins/mycustomview/images/img2.png' class='w-auto m-auto maxw-50 p-3 flexImages'/>";
-
-        echo "<div class='p-5'><p>";
-        echo "•	 Vous avez la possibilité de faire des recherches sur d’autres objets GLPI comme les ordinateurs (Menu <b>Parc / Ordinateurs</b>) :";
-        echo "</p></div>";
-        echo "  <img src='../plugins/mycustomview/images/img3.png' class='w-auto maxw-50 m-auto p-3 flexImages'/>";
-        echo "  </li>";
-        echo " <li>";
-        echo "<div class='p-5'>";
-        echo "<p class='subtitle_modal m-5'>Etape 2 : Construire sa vue personnalisée</p><br>";
-        echo "<p>•	Dans la page d’accueil, cliquez sur l’onglet <b>« Ma vue personnalisée »</b>. Par défaut aucune recherche s’affiche :";
-        echo "</p></div>";
-        echo "  <img src='../plugins/mycustomview/images/img4.png' class='w-auto maxw-80 m-auto p-3 flexImages'/>";
-        echo "<div class='p-5'><p>";
-        echo "•	  Cliquez sur le symbole <b>« + »</b> face à la recherche sauvegardée que vous souhaitez afficher. Une fois sélectionnée, celle-ci s’affiche dans votre vue et est indiquée comme <b>« Déjà ajoutée »</b>";
-        echo "</p></div>";
-        echo "  <img src='../plugins/mycustomview/images/img5.png' class='w-auto maxw-80 m-auto p-3 flexImages'/>";
-        echo "  <img src='../plugins/mycustomview/images/img6.png' class='w-auto maxw-80 m-auto p-3 flexImages'/>";
-        echo "  </li>";
-
-        echo "<li>";
-        echo "<div class='p-5'>";
-        echo "<p>•	Une fois vos recherches ajoutées, vous avez la possibilité en cliquant sur le bouton <b>« Modifier »</b> de :<br><br>
-            -	Réorganiser vos fenêtres de recherche via un cliquer-Glisser :";
-        echo "</p></div>";
-        echo "  <img src='../plugins/mycustomview/images/img7.png' class='w-auto maxw-45 m-auto p-3 flexImages'/>";
-        echo "</li>";
-
-        echo "<li>";
-        echo "<div class='p-5'><p>";
-        echo "-  D’étendre ou de réduire votre fenêtre de recherche en utilisant les boutons « Fenêtre Large » ou « Fenêtre Réduite » :";
-        echo "</p></div>";
-        echo "  <img src='../plugins/mycustomview/images/img8.png' class='w-auto maxw-40 m-auto flexImages'/>";
-        echo "<div class='p-5'><p>";
-        echo "-  De renommer votre recherche en cliquant sur le symbole représentant un crayon :";
-        echo "</p></div>";
-        echo "  <img src='../plugins/mycustomview/images/img9.png' class='w-auto maxw-35 m-auto m-b-5 flexImages'/>";
-        echo "<div class='p-5'><p>";
-        echo "-  De supprimer de votre vue une recherche en cliquant sur le bouton <b>« Supprimer » </b>:";
-        echo "</p></div>";
-        echo "  <img src='../plugins/mycustomview/images/img10.png' class='w-auto maxw-10 m-auto flexImages'/>";
-        echo "<div class='p-5'><p>";
-        echo "<span style='color: red'><b>IMPORTANT</b></span> : Une fois vos modifications effectuées, enregistrez-les en utilisant en cliquant sur le bouton <b>« Enregistrer »</b> :";
-        echo "</p></div>";
-        echo "  <img src='../plugins/mycustomview/images/img11.png' class='w-auto maxw-10 m-auto flexImages'/>";
-        echo " </li>";
-
-        echo "<li>";
-        echo "<div class='p-5'>";
-        echo "<p class='subtitle_modal m-5'>Etape 3 : Personnaliser les champs visibles dans votre tableau</p><br>";
-        echo "<p>•	Cliquez sur le symbole « Clef » pour sélectionner les champs souhaités :</b>";
-        echo "</p></div>";
-        echo "  <img src='../plugins/mycustomview/images/img12.png' class='w-auto maxw-40 m-auto p-3 flexImages'/>";
-        echo "<div class='p-5'><p>";
-        echo "•	Sélectionnez le/les champ(s) à afficher dans la fenêtre qui s’affiche puis validez en cliquant sur <b>« Ajouter »</b> : ";
-        echo "</p></div>";
-        echo "  <img src='../plugins/mycustomview/images/img13.png' class='w-auto maxw-60 m-auto p-3 flexImages'/>";
-        echo " </li>";
-        echo " <li>";
-        echo "<div class='p-5'>";
-        echo "<p class='subtitle_modal m-5'>Etape 4 : Les options supplémentaires</p><br>";
-        echo "<p>•	Cochez la case « Page par défaut » si vous souhaitez avoir l’onglet « Ma vue personnalisée » comme page par défaut lors de vos prochaines connexions</b>";
-        echo "</p>";
-        echo "<p>•	Sélectionnez le nombre d'éléments que vous souhaitez afficher par recherche</b>";
-        echo "</p></div>";
-        echo "  <img src='../plugins/mycustomview/images/img14.png' class='w-auto maxw-80 m-auto p-3 flexImages'/>";
-        echo "<div class='p-5'>";
-        echo "<p>•	Vous pouvez agrandir la taille de vos fenêtres en tirant le bouton tout en bas à droite (accessible en mode « Modification »)";
-        echo "</p>";
-        echo "</div>";
-        echo " <img src='../plugins/mycustomview/images/img15.png' class='w-auto maxw-80 m-auto p-3 flexImages'/>";
-        echo "  </li>";
-        echo " </ul>";
-        echo "</div>";
-        // ------------------------------ //
-        echo "<div class='mcv_modal_footer d-flex flex-end'>";
-        echo "</div>";
-        echo "</div>";
+        PluginMycustomviewSavedSearch::displayHelpModal();
 
         // -------- MODAL CHANGEMENT DE TITRE DE RECHERCHE ----------- //
         echo "<div class='mcv_modal mcv_modal_bg_light mcv_modal_very_small mcv_modal_edit_title mcv_display_none'>";
@@ -227,10 +126,9 @@ class PluginMycustomviewBlocs extends PluginMycustomviewSearch
                         echo " <div class='mcv_tab mcv_movable_items " . $screen_mode_class . "' data-number=" . $i . ">";
                     }
                     echo "<div class='mcv_transparent_view mcv_display_none'></div>";
-                    // echo "<div class='mcv_absolute'>";
                     echo "<div class='draggable mcv_display_none'>";
                     echo "<h3>Maintenez-moi pour me déplacer</h3>";
-                    // echo "</div>";
+                    echo "<h3>Vous pouvez agrandir la vue en bas à droite de la fenêtre de recherche</h3>";
                     echo "</div>";
 
                     // Pour chaque SavedSearch de l'utilisateur, on va venir faire une comparaison :
