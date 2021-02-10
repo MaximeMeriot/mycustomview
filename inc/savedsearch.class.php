@@ -627,7 +627,7 @@ class PluginMycustomviewSavedSearch extends SavedSearch
       echo $id;
       foreach ($result as $liste) {
          if ($liste['list_limit'] == NULL) {
-            $_SESSION['glpilist_limit_mcv'] = 20;
+            $_SESSION['glpilist_limit_mcv'] = 10;
          } else {
             $_SESSION['glpilist_limit_mcv'] = $liste['list_limit'];
          }

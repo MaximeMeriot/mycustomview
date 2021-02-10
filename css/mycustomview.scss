@@ -62,7 +62,7 @@ $white: 255, 255, 255;
 .mcv_modal {
   position: absolute;
   z-index: 100;
-  box-shadow: 0 2px 15px rgba(0,0,0,.4);
+  box-shadow: 0 2px 15px rgba(0, 0, 0, 0.4);
   border-radius: 4px;
 }
 .bg-white {
@@ -89,7 +89,7 @@ $white: 255, 255, 255;
   height: 200px;
   left: 30%;
   right: 30%;
-  top: 15%;
+  top: 150px;
 }
 .mcv_modal_close {
   position: absolute;
@@ -278,7 +278,7 @@ $white: 255, 255, 255;
 .mcv_tab {
   overflow-y: auto;
   position: relative;
-  height: 500px;
+  height: 650px;
   border: 1px solid black;
   margin: 0.5% auto;
   background-color: rgba($white, 0.904);
@@ -315,13 +315,13 @@ $white: 255, 255, 255;
 }
 .absolute_edit_title {
   position: absolute;
-  top : 30px;
+  top: 30px;
   left: 1%;
   right: 1%;
 }
 .absolute_edit_content {
   position: absolute;
-  top: 100px;
+  top: 80px;
 }
 .mcv_absolute {
   position: absolute;
@@ -355,6 +355,9 @@ button {
   top: 0;
   padding: 0.5rem;
   z-index: 20;
+}
+.mcv_content_savedsearch {
+  width: 100%;
 }
 .mcv_change_title {
   padding: 0.5rem;

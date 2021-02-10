@@ -161,12 +161,12 @@ class PluginMycustomviewBlocs extends PluginMycustomviewSearch
 
         // Barre de button modifier / annuler / enregistrer / defaut
         echo "<div class='mcv_manage_tab'>";
-        echo "<input type='hidden' id='user-id' value='".$_SESSION['glpiID']."'>";
+        echo "<input type='hidden' id='user-id' value='" . $_SESSION['glpiID'] . "'>";
         echo "<div class='d-flex flex-column flex-start'>";
         echo "<div class='d-flex self-flex-start m-r-auto align-start m-b-5'>";
-        $sessionItemsNumber = isset($_SESSION['glpilist_limit_mcv']) ? $_SESSION['glpilist_limit_mcv'] : 20;
+        $sessionItemsNumber = isset($_SESSION['glpilist_limit_mcv']) ? $_SESSION['glpilist_limit_mcv'] : 10;
         echo "<label for='mcv_nb_items'>Nombre d'élément par recherche : </label>";
-        echo "<select class='mcv_nb_items' name='mcv_nb_items' data-session-items-number='".$sessionItemsNumber ."'>";
+        echo "<select id='mcv_nb_items' class='mcv_nb_items' name='mcv_nb_items' data-session-items-number='" . $sessionItemsNumber . "'>";
         echo "<option value='5'>5</option>";
         echo "<option value='10'>10</option>";
         echo "<option value='15'>15</option>";
@@ -177,9 +177,9 @@ class PluginMycustomviewBlocs extends PluginMycustomviewSearch
         echo "</div>";
         echo "<div class='d-flex self-flex-start m-r-auto align-end'>";
         if (PluginMycustomviewSavedSearch::isDefaultPageOfUser()) {
-            echo "<input name='isMcvDefault' type='checkbox' checked class='mcv_delete_default'>";
+            echo "<input id ='isMcvDefault' name='isMcvDefault' type='checkbox' checked class='mcv_delete_default'>";
         } else {
-            echo "<input name='isMcvDefault' type='checkbox' class='mcv_add_default'>";
+            echo "<input id ='isMcvDefault' name='isMcvDefault' type='checkbox' class='mcv_add_default'>";
         }
         echo "<b><label for='isMcvDefault' class='m-l-5'>Page par défaut</label></b>";
         echo "</div>";
@@ -203,7 +203,7 @@ class PluginMycustomviewBlocs extends PluginMycustomviewSearch
                 if ($liste = $savedsearch->getUserSavedSearchMcv($max_filters)) {
                     $screen_mode = isset($liste[$i - 1]['screen_mode']) ? $liste[$i - 1]['screen_mode'] : null;
                     $height = isset($liste[$i - 1]['height']) ? $liste[$i - 1]['height'] : null;
-                    $dataHeight = isset($liste[$i - 1]['height']) ? $liste[$i - 1]['height'] : 500;
+                    $dataHeight = isset($liste[$i - 1]['height']) ? $liste[$i - 1]['height'] : 650;
                     if (isset($screen_mode)) {
                         if ($screen_mode == 0) {
                             $screen_mode_class = 'w-49';
@@ -214,13 +214,12 @@ class PluginMycustomviewBlocs extends PluginMycustomviewSearch
                     } else {
                         $screen_mode_class = 'w-49';
                     }
-                    if($height !== null) {
-                          echo " <div class='mcv_tab mcv_movable_items " . $screen_mode_class . "' data-number=" . $i . " style ='height:". $height."px' data-height='".$dataHeight."'>";
-                    }
-                    else {
+                    if ($height !== null) {
+                        echo " <div class='mcv_tab mcv_movable_items " . $screen_mode_class . "' data-number=" . $i . " style ='height:" . $height . "px' data-height='" . $dataHeight . "'>";
+                    } else {
                         echo " <div class='mcv_tab mcv_movable_items " . $screen_mode_class . "' data-number=" . $i . ">";
                     }
-                   echo "<div class='mcv_transparent_view mcv_display_none'></div>";
+                    echo "<div class='mcv_transparent_view mcv_display_none'></div>";
                     // echo "<div class='mcv_absolute'>";
                     echo "<div class='draggable mcv_display_none'>";
                     echo "<h3>Maintenez-moi pour me déplacer</h3>";
