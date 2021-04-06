@@ -36,7 +36,7 @@ class PluginMycustomviewProfile extends Profile
 
     function getTabNameForItem(CommonGLPI $item, $withtemplate = 0)
     {
-
+        $_SESSION['test'] = 5;
         if ($item->getType() == 'Profile') {
             return "Ma vue personnalisée";
         }

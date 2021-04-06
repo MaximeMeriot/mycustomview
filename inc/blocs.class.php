@@ -19,7 +19,10 @@ class PluginMycustomviewBlocs extends PluginMycustomviewSearch
         $savedsearch = new PluginMycustomviewSavedSearch();
         $userName = PluginMycustomviewMyview::getUserNameMcv();
 
-        echo Html::css("/plugins/mycustomview/css/theme.default.min.css");
+        if(isset($_SESSION['session_message_norepeat'])) {
+            $_SESSION['session_message_norepeat'] = false;
+        }
+
         echo Html::css("/plugins/mycustomview/css/flexslider.css");
         echo Html::Scss("/plugins/mycustomview/css/mycustomview.scss");
         echo Html::script("/plugins/mycustomview/js/jquery.dad.js");
@@ -27,7 +30,7 @@ class PluginMycustomviewBlocs extends PluginMycustomviewSearch
         echo Html::script("/plugins/mycustomview/js/jquery.tablesorter.widgets.min.js");
         echo Html::script("/plugins/mycustomview/js/jquery.flexslider.js");
         echo Html::script("/plugins/mycustomview/js/mycustomview.js");
-
+        echo Html::css("/plugins/mycustomview/css/theme.default.min.css");
 
         echo "<div class='fullscreen-dark-container mcv_display_none'></div>";
         echo "<div id = 'mcv_drag_drop' class='mcv_drag_drop'>";
@@ -49,7 +52,6 @@ class PluginMycustomviewBlocs extends PluginMycustomviewSearch
         echo "<button class='mcv_button mcv_button_success mcv_text_light mcv_change_title'>Valider</button>";
         echo "</div>";
 
-
         // ------- MODAL ANNULATION MODIFICATION ----------- //
 
         echo "<div class='mcv_modal mcv_modal_bg_light mcv_modal_very_small mcv_cancel_message mcv_display_none'>";
@@ -66,7 +68,23 @@ class PluginMycustomviewBlocs extends PluginMycustomviewSearch
         echo "</div>";
 
         // Barre de button modifier / annuler / enregistrer / defaut
-        echo "<div class='mcv_manage_tab'>";
+        $settings_hidden = PluginMycustomviewSavedSearch::areSettingsHidden();
+
+        if ($settings_hidden) {
+            echo "<div class='mcv_settings'>";
+        }
+        else {
+            echo "<div class='mcv_settings mcv_display_none'>";
+        }
+        
+        echo "<button id='mcv_show' title='Afficher les réglages' class='mcv_button mcv_text_light mcv_button_basic mcv_show '><i style='margin-left: 5px' class='fas fa-cog'></i></button>";
+        echo "</div>";
+        if ($settings_hidden) {
+            echo "<div class='mcv_manage_tab mcv_display_none'>";
+        }
+        else {
+            echo "<div class='mcv_manage_tab'>";
+        }
         echo "<input type='hidden' id='user-id' value='" . $_SESSION['glpiID'] . "'>";
         echo "<div class='d-flex flex-column flex-start'>";
         echo "<div class='d-flex self-flex-start m-r-auto align-start m-b-5'>";
@@ -92,7 +110,8 @@ class PluginMycustomviewBlocs extends PluginMycustomviewSearch
         echo "</div>";
         echo "<button id='mcv_cancel' class='mcv_button mcv_text_light mcv_button_warning mcv_cancel mcv_display_none' ><i class='fas fa-2x fa-times'></i>Annuler</button>";
         echo "<button id ='mcv_edit' class='mcv_edit mcv_button mcv_text_light mcv_button_basic'><i class='fas fa-2x fa-edit'></i>Modifier</button>";
-        echo "<button id ='mcv_help' class ='mcv_button mcv_text_light mcv_button_help mcv_help mcv_help'><i class='fas fa-2x fa-question-circle'></i>Aide</button>";
+        echo "<button id ='mcv_help' class ='mcv_button mcv_text_light mcv_button_help mcv_help'><i class='fas fa-2x fa-question-circle'></i>Aide</button>";
+        echo "<button id ='mcv_hide' title='Masquer les réglages' class ='mcv_button mcv_text_light mcv_button_basic'><i style='margin-left:5px'class='fas fa-eye-slash'></i></button>";
         echo "<button id='mcv_save' class='mcv_button mcv_text_light mcv_button_success mcv_save mcv_display_none' ><i class='fas fa-2x fa-save'></i>Enregistrer</button>";
         echo "</div>";
         // ------- 

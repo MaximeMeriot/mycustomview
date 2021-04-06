@@ -62,6 +62,7 @@ $(document).ready(function () {
     $(".fa-wrench").addClass("mcv_display_none");
     $(".mcv_title_savedsearch").addClass("absolute_edit_title");
     $(".mcv_content_savedsearch").addClass("absolute_edit_content");
+    $('#mcv_hide').addClass('mcv_display_none');
     mcvTab.addClass("resizable");
 
   });
@@ -83,6 +84,7 @@ $(document).ready(function () {
     $(".fa-wrench").removeClass("mcv_display_none");
     $(".mcv_title_savedsearch").removeClass("absolute_edit_title");
     $(".mcv_content_savedsearch").removeClass("absolute_edit_content");
+    $('#mcv_hide').removeClass('mcv_display_none');
     mcvTab.removeClass("resizable");
     resetHeight();
   }
@@ -144,8 +146,12 @@ $(document).ready(function () {
 
   // JS QUI PERMET DE REGLER LE PROBLEME SUR LE CLIC "VUE PERSONNELLE"
   var clickOnMyView = document.querySelector("[title='Vue personnelle']");
+  var clickOnMyView2 = document.querySelector("[title='Tableau de bord']");
   var myCustomView = document.querySelector("[title='Ma vue personnalisée']");
   clickOnMyView.addEventListener("click", function () {
+    myCustomView.setAttribute("data-change", 1);
+  });
+  clickOnMyView2.addEventListener("click", function () {
     myCustomView.setAttribute("data-change", 1);
   });
 
@@ -216,4 +222,23 @@ $(document).ready(function () {
       $(this).attr('selected', true);
     }
   });
+
+  $('#mcv_hide').on("click", function () {
+    $(".mcv_manage_tab").fadeOut(500, function () {
+      $(".mcv_settings").removeClass('mcv_display_none');
+    });
+    
+  });
+
+  $('#mcv_show').on("click", function () {
+    if ($(".mcv_manage_tab").hasClass("mcv_display_none")) {
+      console.log('test')
+      $(".mcv_manage_tab").removeClass("mcv_display_none");
+    }
+    $(".mcv_manage_tab").fadeIn(500);
+    $(".mcv_settings").addClass('mcv_display_none');
+  });
+
+
+
 });

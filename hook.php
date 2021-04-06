@@ -52,6 +52,7 @@ function plugin_mycustomview_install()
          `user_id` INT(11) NOT NULL,
          `default_page` TINYINT,
          `list_limit` INT(11),
+         `settings_hidden` TINYINT,
           PRIMARY KEY  (`id`)
        ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci";
 
